@@ -58,17 +58,17 @@ export default class App extends Component {
     return this.state.loading === true ? <h1>Loading</h1> : (
       <BrowserRouter>
         <div>
-          <nav className="navbar navbar-inverse">
+          <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
             <div className="container-fluid">
-              <ul className="nav navbar-nav">
-                <li>
-                  <Link to="/">Home</Link>
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">Home</Link>
                 </li> 
                 {this.state.authed
                   ? 
                       <button
                         // style={{border: 'none', background: 'transparent'}}
-                        className="btn btn-default navbar-btn"
+                        className="btn btn-outline"
                         type="button"
                         onClick={() => {
                           logout()
@@ -76,11 +76,11 @@ export default class App extends Component {
                         }}
                         >Logout</button>
                     
-                  : <li><Link to="/login" >Login</Link></li>
+                  : <li className="nav-item"><Link to="/login" className="nav-link">Login</Link></li>
 
                   }
                   {this.state.authed ? '':
-                    <li><Link to="/register" >Register</Link></li>
+                    <li className="nav-item"><Link to="/register" className="nav-link">Register</Link></li>
                   }
               </ul>
             </div>
